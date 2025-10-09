@@ -2,14 +2,17 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    /* NEW GRADIENT: Wider bright area */
-    background: radial-gradient(circle at center, #4e3d93 10%, /* Start brighter area earlier */
-    #2a2c5a 60%, /* Move mid-tone out */
-    #17183e 100% );
+    /* Combined Radial Gradient: This creates the blue/purple fading to dark background */
+    background: radial-gradient(circle at center, #4e3d93 10%, /* Bright center color (similar to hsl(250, 60%, 40%)) */
+    #2a2c5a 60%, /* Mid-tone/transition color */
+    #17183e 100% /* Dark outer color */
+    );
     color: #fff;
     scroll-behavior: smooth;
     min-height: 100vh;
 }
+
+/* Include the .section block from the second example as it's a necessary layout rule */
 .section {
     padding: 100px 20px;
     max-width: 1200px;
@@ -47,7 +50,7 @@ body {
     }
 
     .navbar a {
-        /* Active link style (like 'home' is on John's page) */
+        /* Active link style */
         text-decoration: none;
         color: #fff;
         font-weight: 500; /* Slightly lighter weight */
@@ -71,25 +74,28 @@ body {
     height: 100vh;
     text-align: center;
 }
-/* Adjustments for Home Section Text */
-.home-content h1 {
-    font-size: 2.5em; /* Ensure the main name is large */
-    margin-bottom: 5px;
-}
-
-    .home-content h1 .name-highlight {
-        /* To highlight your name like "John Trinh Vu" is highlighted */
-        color: #a0c4ff; /* Lighter purple/blue for the name highlight */
-    }
-/* You need to update your HTML <h1> to include the span:
-   <h1>Hi, I'm <span class="name-highlight">Matthew Nguyen</span></h1> 
-*/
-
+/* Apply the glow effect to the main heading and sub-text */
+.home-content h1,
 .home-content p {
-    color: #d1d1d1; /* Slightly muted white for the sub-text */
-    font-size: 1.1em;
+    /* Use a base white color */
+    color: white;
+    /* Apply a subtle white shadow to create the glowing effect */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4), /* Soft, wide glow */
+    0 0 10px rgba(255, 255, 255, 0.2); /* Fainter, wider glow */
 }
 
+    /* Ensure the name highlight retains its purple/blue color but still glows */
+    .home-content h1 .name-highlight {
+        color: #a0c4ff; /* Lighter purple/blue color */
+        /* Apply a colored shadow to make the highlight pop */
+        text-shadow: 0 0 5px #a0c4ff, 0 0 15px rgba(160, 196, 255, 0.8);
+    }
+
+/* Increase the contrast of your secondary text slightly */
+.home-content p {
+    color: #d1d1d1;
+    font-weight: 500; /* Add slight weight to prevent text from fading too much */
+}
 .profile-photo {
     width: 150px;
     height: 150px;
