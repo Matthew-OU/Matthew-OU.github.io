@@ -1,0 +1,108 @@
+﻿body {
+    background-color: #1a1a2e; /* Dark purple/blue background */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+    .header .icon-container {
+        background-color: #6a5acd;
+        color: white;
+        font-weight: bold;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+.coursework-section {
+    background-color: #3b3b64;
+    padding: 25px;
+    margin: 0 auto 50px auto;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.highlight {
+    color: #a0c4ff;
+    font-weight: bold;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding: 50px 0;
+}
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: #6a5acd;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-content {
+    width: 45%; /* Space for card */
+}
+
+    .timeline-content.left {
+        text-align: right;
+    }
+
+    .timeline-content.right {
+        text-align: left;
+    }
+
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 4px #6a5acd;
+    z-index: 3;
+    flex-shrink: 0;
+}
+
+/* Card Styling */
+.card {
+    background-color: #33334f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+    /* Optional: smaller font for company/date */
+    .card .company,
+    .card .date {
+        font-size: 0.9em;
+        opacity: 0.8;
+    }

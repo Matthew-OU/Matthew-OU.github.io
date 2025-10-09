@@ -1,0 +1,221 @@
+﻿/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #111133;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+.navbar a:hover {
+    color: #6a5acd;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid #6a5acd;
+}
+
+/* Timeline / Experience */
+.timeline-container {
+    text-align: center;
+}
+
+.coursework-section {
+    background-color: #3b3b64;
+    padding: 25px;
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+.highlight {
+    color: #a0c4ff;
+    font-weight: bold;
+}
+
+/* ======================================================= */
+/* --- CORRECTED TIMELINE STYLES FOR ALTERNATING CARDS --- */
+/* ======================================================= */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content/line horizontally */
+    position: relative;
+    padding-top: 50px;
+}
+
+/* Vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Position the line in the center */
+    width: 4px;
+    background-color: #6a5acd;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    /* Ensure the item spans wide and is centered */
+    width: 100%; 
+    max-width: 1000px;
+    margin-bottom: 50px;
+    position: relative; /* Essential for positioning the icon */
+    z-index: 2;
+    /* Essential: Use Flexbox to position the card to the side */
+    display: flex; 
+    align-items: center;
+}
+
+/* The Card Style */
+.card {
+    background-color: #33334f;
+    width: 40%; /* Reduced width to create a larger gap */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin: 0;
+}
+
+/* The Icon - Always centered on the item */
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 4px #6a5acd;
+    z-index: 3;
+}
+/* 1. Left Card Positioning (Card on Left) */
+.timeline-item.left {
+    /* Pushes the card to the left side */
+    justify-content: flex-start;
+}
+
+    /* Add margin only on the right side of the card to create the gap to the icon */
+    .timeline-item.left .card {
+        margin-right: 50px;
+        margin-left: 0; /* Ensure no opposing margin */
+    }
+
+/* 2. Right Card Positioning (Card on Right) */
+.timeline-item.right {
+    /* Pushes the card to the right side */
+    justify-content: flex-end;
+}
+
+    /* Add margin only on the left side of the card to create the gap to the icon */
+    .timeline-item.right .card {
+        margin-left: 50px;
+        margin-right: 0; /* Ensure no opposing margin */
+    }
+
+/* ======================================================= */
+/* --- END OF TIMELINE STYLES --- */
+/* ======================================================= */
+
+/* Projects Section */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #33334f;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact-form button {
+    padding: 12px;
+    background-color: #6a5acd;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #5a4bbc;
+}
