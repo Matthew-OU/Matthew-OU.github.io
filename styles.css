@@ -12,13 +12,19 @@ body {
     min-height: 100vh;
 }
 
-/* Include the .section block from the second example as it's a necessary layout rule */
+/* Find the general style for your content sections (likely the .section class) */
 .section {
+    /* Vertical padding remains the same */
     padding: 100px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* REMOVE or DELETE this line if it exists to allow maximum possible width */
+    /* max-width: 1200px; */
+    /* Alternatively, set a much larger value */
+    max-width: 1600px;
+    /* Increase the horizontal padding to control spacing from the edge of the screen */
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0 auto; /* Keeps the content centered */
 }
-
 /* Navbar - New Floating Style */
 .navbar {
     position: fixed;
@@ -374,3 +380,93 @@ body {
         color: #8b5cf6; /* A distinct purple color for the icon */
         font-weight: bold;
     }
+
+/* --- PROJECTS SECTION MODIFICATION --- */
+
+/* 1. Project Container */
+.projects-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    justify-content: center;
+    /* CRITICAL: Set to 100% to fill the new, wider .section space */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 2. Project Card (Refined look) */
+.project-card {
+    /* Set width to 100% to fill the grid column, remove the 95% width */
+    width: 95%;
+    background-color: #33334f;
+    /* REFINED: Increase vertical padding for more internal space */
+    padding: 30px 35px;
+    /* REFINED: Slightly more rounded corners and stronger shadow */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    text-align: left;
+    display: flex;
+    gap: 25px; /* Tighter gap between content and image */
+    align-items: flex-start;
+    min-height: 280px; /* Ensure cards have a consistent, professional height */
+}
+
+/* Make the Content and Preview take up roughly half the space */
+.project-content {
+    flex: 1; /* Allows the content to grow and take space */
+}
+
+/* 2a. Typography and Spacing (New/Modified Rules) */
+.project-card h3 {
+    font-size: 1.5rem; /* Larger, bolder title */
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.project-tech {
+    color: #a0c4ff; /* Highlight color for the tech/date line */
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 15px; /* More space before the main description */
+}
+
+.project-content p {
+    font-size: 1.0em;
+    color: #d1d1d1; /* Use a lighter gray for body text */
+}
+
+/* 3. Project Preview (Image side - Refined border) */
+.project-preview {
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 250px;
+    overflow: hidden;
+    /* REFINED: Stronger border matching your purple theme */
+    border-radius: 8px;
+    border: 2px solid rgba(106, 90, 205, 0.5);
+}
+
+    .project-preview img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+/* 4. Tech Tags (Refined pill style) */
+.tech-tags {
+    margin-top: 20px; /* Push the tags further down from the main text */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    /* REFINED: Background color and padding for the pill look */
+    background-color: #3b3b64;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    font-weight: 600; /* Slightly bolder text */
+}
