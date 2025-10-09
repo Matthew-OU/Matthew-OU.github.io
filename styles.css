@@ -102,12 +102,27 @@ body {
     color: #d1d1d1;
     font-weight: 500; /* Add slight weight to prevent text from fading too much */
 }
+
 .profile-photo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-bottom: 20px;
     border: 4px solid #6a5acd;
+}
+
+/* ======================================= */
+/* --- NEW/FIXED: Home Button Container --- */
+/* ======================================= */
+
+/* FIX: This targets your HTML class and centers the buttons and icons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    gap: 20px; /* Space between buttons/groups */
+    margin-top: 30px;
+    margin-bottom: 50px;
+    align-items: center;
 }
 
 /* Timeline / Experience */
@@ -127,6 +142,69 @@ body {
     color: #a0c4ff;
     font-weight: bold;
 }
+
+/* --- NEW: Primary and Secondary Button Styles --- */
+
+.cta-button {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 999px; /* Pill shape */
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: inline-block; /* Essential for padding/sizing */
+}
+
+    /* Primary Button (Contact Me) */
+    .cta-button.primary {
+        background-color: #6a5acd; /* Bright Purple */
+        color: white;
+        border: 2px solid #6a5acd;
+    }
+
+        .cta-button.primary:hover {
+            background-color: #5a4bbc;
+        }
+
+    /* Secondary Button (Download CV) */
+    .cta-button.secondary {
+        background-color: #17183e; /* Dark background */
+        color: white;
+        border: 2px solid #6a5acd; /* Purple border */
+    }
+
+        .cta-button.secondary:hover {
+            background-color: #6a5acd;
+            border-color: #6a5acd;
+            color: white;
+        }
+
+/* Social Media Icons (small circles) */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #33334f;
+    border: 2px solid #6a5acd;
+    color: white; /* Icon color */
+    font-size: 1.2em; /* Assuming you'll use font-awesome or similar */
+    text-decoration: none;
+    /* Ensure the icon itself is vertically aligned correctly */
+    line-height: 45px; /* Added to help center the icon glyph if needed */
+}
+
+    .social-icon:hover {
+        background-color: #6a5acd;
+    }
 
 /* ======================================================= */
 /* --- CORRECTED TIMELINE STYLES FOR ALTERNATING CARDS --- */
@@ -236,24 +314,111 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     text-align: center;
 }
+/* ------------------------------------------- */
+/* --- NEW: Contact Section Two-Column Layout --- */
+/* ------------------------------------------- */
 
-/* Contact Section */
-.contact-form {
+/* 1. Remove Centering and Define Grid */
+#contact {
+    /* Remove all previous 'display: flex', 'align-items', 'text-align' centering rules */
+    display: block; /* Revert to default block layout */
+    text-align: left; /* Ensure text aligns left */
+    min-height: auto; /* Remove minimum height constraint */
+}
+
+.contact-layout {
+    display: grid;
+    /* Create two columns: Left (Map) is slightly wider, Right (Form) is slightly narrower */
+    grid-template-columns: 1.8fr 1.7fr;
+    gap: 50px; /* Space between the map and the form */
+    align-items: flex-start; /* Aligns content to the top */
+    margin: 0 auto;
+    /* This width should match your overall site max-width (e.g., 1400px or 1600px) */
+    max-width: 1400px;
+}
+
+/* 2. Style the Left Column (Map/Details) */
+.contact-details {
+    /* Background and structure for the left column content area */
     display: flex;
     flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
+    gap: 30px;
 }
 
-.contact-form input, .contact-form textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
+.map-placeholder img {
+    /* Ensure the map placeholder looks correct */
+    display: block;
+}
+
+.contact-info-block {
+    background-color: #30304a; /* A darker shade for the info box (like the reference) */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+    .contact-info-block h4 {
+        color: #a0c4ff; /* Highlight color for headers */
+        font-size: 1em;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .contact-info-block p {
+        margin-bottom: 15px;
+    }
+
+
+/* 3. Style the Right Column (Form) */
+.contact-form-wrapper {
+    /* Use a darker shade for the form background, similar to the reference */
+    background-color: #30304a;
+    /* Increase padding for more space between the content and the edges of the box */
+    padding: 40px;
+    border-radius: 12px;
+}
+
+    .contact-form-wrapper .section-title {
+        /* Ensure the title is properly styled within the box */
+        margin-top: 0;
+        text-align: left;
+        /* Increase size to match the reference image */
+        font-size: 2.2rem;
+    }
+
+.contact-intro {
+    font-size: 1.05em;
+    color: #d1d1d1;
+    margin-bottom: 30px; /* More space between intro text and first input */
+}
+
+/* 4. Update Form and Button Styles */
+
+/* Ensure the <form> itself uses flexbox for clean stacking */
+.contact-form-wrapper form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+    /* CRITICAL: Ensure inputs fill the full width of the wrapper padding allows */
+    width: 95%;
+    /* Subtle changes for the reference look */
     font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px; /* Slight increase in margin for more vertical separation */
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 92, 246, 0.4); /* Use a subtle border matching your theme */
+    background-color: #252538;
+    color: white;
+    /* Increase font size for better readability inside the field */
+    font-size: 1em;
 }
 
-.contact-form button {
+.contact-form-wrapper button[type="submit"] {
+    /* Ensure your submit button style is applied and updated */
     padding: 12px;
     background-color: #6a5acd;
     color: white;
@@ -261,48 +426,27 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
 }
 
-.contact-form button:hover {
-    background-color: #5a4bbc;
+.contact-form-wrapper button[type="submit"] {
+    /* Increase size and margin for a prominent button */
+    padding: 15px;
+    font-size: 1.2em;
+    margin-top: 15px;
+    /* ... rest of your button styles ... */
 }
 
-/* Add this new section to your styles.css */
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Spacing between buttons */
-    margin-top: 30px;
+/* Ensure the map placeholder looks good and respects the corners */
+.map-placeholder iframe {
+    /* Ensures the iframe takes the full width and respects the height set in the HTML */
+    width: 100%;
+    height: 350px;
+    display: block;
+    /* This style is key to getting the rounded corners on the map */
+    border-radius: 8px;
 }
-
-.cta-button {
-    padding: 15px 30px;
-    border-radius: 999px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-    /* Style for the Contact Me button (Primary Purple) */
-    .cta-button.primary {
-        background-color: #6a5acd; /* Matching your existing purple */
-        color: white;
-    }
-
-    /* Style for the Download CV button (Darker Secondary) */
-    .cta-button.secondary {
-        background-color: #33334f; /* Darker background color */
-        color: white;
-        border: 2px solid #6a5acd; /* Purple border */
-    }
-
-    .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    }
-
 /* Social Media Icons (small circles) */
 .social-icons {
     display: flex;
