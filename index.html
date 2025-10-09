@@ -5,30 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Nguyen Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Top Navbar -->
     <nav class="navbar">
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Home Section -->
     <section id="home" class="section home">
         <div class="home-content">
             <img src="https://scontent.ftul2-1.fna.fbcdn.net/v/t39.30808-1/464752574_1978955012571210_1794376648335653932_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=100&ccb=1-7&_nc_sid=e99d92&_nc_ohc=BuO7XtkODgQQ7kNvwGiBcYm&_nc_oc=Adm7T-au91D0LyzpW1_0cbGEGEj0Fu8NjKoZy18JIg9343io57kKMVGrqsQSkcqJe4w&_nc_zt=24&_nc_ht=scontent.ftul2-1.fna&_nc_gid=ruoULVSn2WGJxJ4RMubrPw&oh=00_Afc3TBxguP7qmsVtFprYRzavJegM12Lrs7VsOReKT9KPyw&oe=68ECE50A" alt="Matthew Nguyen" class="profile-photo">
-            <h1>Hi, I'm Matthew Nguyen</h1>
+
+            <h1>Hi, I'm <span class="name-highlight">Matthew Nguyen</span></h1>
             <p>Software Analyst | Full Stack Developer</p>
+
+            <div class="button-container">
+                <a href="#contact" class="cta-button primary">Contact Me →</a>
+                <a href="your_cv_link.pdf" class="cta-button secondary">Download CV</a>
+
+                <div class="social-icons">
+                    <a href="your_linkedin_link" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="your_github_link" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="timeline-container">
 
@@ -46,7 +59,6 @@
             </div>
 
             <div class="timeline">
-                <!-- Left Card -->
                 <div class="timeline-item left">
                     <div class="card">
                         <h3>Software Engineer</h3>
@@ -61,7 +73,6 @@
                     </div>
                 </div>
 
-                <!-- Right Card -->
                 <div class="timeline-item right">
                     <div class="card">
                         <h3>Software Engineer Intern</h3>
@@ -80,7 +91,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section">
         <h1>Projects</h1>
         <div class="projects-container">
@@ -92,11 +102,9 @@
                 <h3>Project 2</h3>
                 <p>Brief description of the project.</p>
             </div>
-            <!-- Add more projects -->
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
         <h1>Contact Me</h1>
         <form class="contact-form">
