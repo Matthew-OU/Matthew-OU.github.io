@@ -321,3 +321,56 @@ body {
     .social-icon:hover {
         background-color: #6a5acd;
     }
+
+
+/* --- Skills Section Styles --- */
+
+.skills-section {
+    text-align: center;
+    padding-top: 50px; /* Adjust padding as needed */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-color-light); /* Assuming a light text color variable */
+    margin-bottom: 3rem;
+}
+
+/* Style for the grid container */
+.skills-grid {
+    display: flex; /* Use flexbox for simple wrapping or grid for precise layout */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem; /* Space between skill tags */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Style for individual skill tags */
+.skill-tag {
+    /* Background and Border (Dark card look) */
+    background-color: rgba(30, 30, 50, 0.7); /* Dark, slightly transparent background */
+    border: 1px solid rgba(139, 92, 246, 0.4); /* Subtle purple border */
+    border-radius: 0.5rem;
+    /* Text and Padding */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    /* Subtle Shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Transition for hover effect */
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+    .skill-tag:hover {
+        background-color: rgba(60, 60, 90, 0.8);
+        transform: translateY(-2px);
+    }
+
+    /* Optional: Icon/Chip visual */
+    .skill-tag::before {
+        content: "✓ "; /* Using a checkmark or similar icon */
+        color: #8b5cf6; /* A distinct purple color for the icon */
+        font-weight: bold;
+    }
