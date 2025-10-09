@@ -206,6 +206,73 @@ body {
         background-color: #6a5acd;
     }
 
+/* ------------------------------------------- */
+/* --- NEW: About Me Section Styles --- */
+/* ------------------------------------------- */
+
+/* Structure for the About section */
+.about-section {
+    text-align: center; /* Center the icon and title */
+}
+
+/* Header container to align icon and title (if needed, though 'text-align: center' handles it) */
+.section-header {
+    margin-bottom: 50px;
+}
+
+/* Icon (The purple square/chip) */
+.about-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem; /* Size of the icon itself */
+    color: white; /* Color of the icon inside the background */
+    /* Background chip style */
+    background-color: #6a5acd; /* Primary purple color */
+    width: 60px;
+    height: 60px;
+    border-radius: 10px; /* Slightly rounded corners */
+    margin-bottom: 15px;
+}
+
+/* The main content card */
+.about-card {
+    /* Use the same dark background as your other project/contact cards */
+    background-color: #33334f;
+    /* Center the card and set a max width */
+    max-width: 900px;
+    margin: 0 auto;
+    /* Padding and appearance */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Text alignment for the content inside */
+    text-align: left;
+    line-height: 1.7;
+    font-size: 1.1em;
+    color: #d1d1d1; /* Lighter color for body text */
+}
+
+    /* Paragraph spacing inside the card */
+    .about-card p {
+        margin-bottom: 20px;
+    }
+
+/* The highlight span (already defined, but ensure it's correct) */
+.highlight {
+    color: #a0c4ff; /* Highlight color (a lighter purple/blue) */
+    font-weight: bold;
+}
+
+/* NOTE: Ensure your existing .section-title is styled correctly: */
+/*
+.section-title {
+    font-size: 2.5rem;
+    color: #fff; 
+    margin-bottom: 3rem;
+}
+*/
+
 /* ======================================================= */
 /* --- CORRECTED TIMELINE STYLES FOR ALTERNATING CARDS --- */
 /* ======================================================= */
