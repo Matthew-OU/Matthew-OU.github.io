@@ -688,3 +688,149 @@ html {
     font-size: 0.85em;
     font-weight: 600; /* Slightly bolder text */
 }
+
+/* ======================================= */
+/* RESPONSIVE DESIGN FIXES FOR MOBILE VIEW */
+/* ======================================= */
+
+/* Target screens below ~900px (tablets & smaller) */
+@media (max-width: 900px) {
+    /* Navbar: allow wrapping instead of one long row */
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navbar {
+        width: 90%;
+        top: 10px;
+        padding: 5px;
+    }
+
+    /* Home Section */
+    .home {
+        padding: 80px 20px;
+        height: auto;
+    }
+
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* About card */
+    .about-card {
+        padding: 25px;
+        margin: 0 10px;
+        font-size: 1em;
+    }
+
+    /* Skills grid: reduce columns */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+        justify-items: center;
+    }
+
+    /* Project cards: stack vertically */
+    .projects-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .project-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .project-preview img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Contact layout: stack form and details */
+    .contact-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-details, .contact-form-wrapper {
+        width: 100%;
+    }
+
+    iframe {
+        height: 250px;
+    }
+
+    /* Timeline */
+    .timeline::before {
+        left: 10px; /* move line to left for vertical mobile layout */
+    }
+
+    .timeline-item {
+        width: 100%;
+        margin: 20px 0;
+        position: relative;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+        .timeline-item.left, .timeline-item.right {
+            align-self: flex-start;
+        }
+
+    .timeline-icon {
+        position: absolute;
+        left: 0;
+        top: 10px;
+    }
+}
+
+/* Even smaller screens (phones under 600px) */
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar li {
+        margin: 5px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
