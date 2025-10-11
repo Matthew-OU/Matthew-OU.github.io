@@ -851,3 +851,58 @@ html {
             /* The active link is styled here, which looks good in the grid */
         }
 }
+
+/* ======================================================= */
+/* --- EXPERIENCE TIMELINE BULLET POINT SPACING FIX --- */
+/* ======================================================= */
+
+.timeline .card ul li {
+    /* Add extra vertical space below each list item */
+    margin-bottom: 15px;
+    /* Remove any default list padding if necessary for clean look */
+    padding-bottom: 0;
+}
+
+/* ======================================================= */
+/* --- PROJECT HEADING CENTERING FIX --- */
+/* ======================================================= */
+
+/* This targets the main heading for the Projects section */
+#projects .section-title,
+#projects h2 {
+    text-align: center;
+}
+
+/* ======================================================= */
+/* --- GLOBAL SECTION HEADER CENTERING --- */
+/* This ensures the icon and title for all sections (About, Experience, Projects) are centered */
+.section-header {
+    /* Set the container to take up full width */
+    width: 100%;
+    /* Centers the inline-block children (like the icon and title) */
+    text-align: center;
+    /* Add some space below the entire header block */
+    margin-bottom: 40px;
+}
+
+/* Optional: Center the content inside the Projects section if needed */
+#projects .projects-container {
+    justify-content: center;
+}
+
+/* ======================================================= */
+/* --- SPACING FIX: SEPARATE TIMELINE AND NEXT SECTION --- */
+/* ======================================================= */
+
+.timeline {
+    /* Add substantial space below the entire experience timeline */
+    margin-bottom: 150px;
+
+}
+
+.section-header {
+    width: 100%;
+    /* This is the key property that centers the content inside the header div */
+    text-align: center;
+    margin-bottom: 40px;
+}
