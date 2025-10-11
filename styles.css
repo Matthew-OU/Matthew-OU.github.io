@@ -689,148 +689,113 @@ html {
     font-weight: 600; /* Slightly bolder text */
 }
 
-/* ======================================= */
-/* RESPONSIVE DESIGN FIXES FOR MOBILE VIEW */
-/* ======================================= */
+/* ======================================================= */
+/* --- MEDIA QUERY: MOBILE TIMELINE FIX --- */
+/* ======================================================= */
 
-/* Target screens below ~900px (tablets & smaller) */
-@media (max-width: 900px) {
-    /* Navbar: allow wrapping instead of one long row */
-    .navbar ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
+@media (max-width: 768px) {
 
-    .navbar {
-        width: 90%;
-        top: 10px;
-        padding: 5px;
-    }
-
-    /* Home Section */
-    .home {
-        padding: 80px 20px;
-        height: auto;
-    }
-
-    .home-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-photo {
-        width: 200px;
-        height: 200px;
-    }
-
-    .button-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .social-icons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* About card */
-    .about-card {
-        padding: 25px;
-        margin: 0 10px;
-        font-size: 1em;
-    }
-
-    /* Skills grid: reduce columns */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 10px;
-        justify-items: center;
-    }
-
-    /* Project cards: stack vertically */
-    .projects-container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .project-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .project-preview img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-    }
-
-    /* Contact layout: stack form and details */
-    .contact-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .contact-details, .contact-form-wrapper {
-        width: 100%;
-    }
-
-    iframe {
-        height: 250px;
-    }
-
-    /* Timeline */
+    /* 1. Reset the vertical line position */
     .timeline::before {
-        left: 10px; /* move line to left for vertical mobile layout */
+        left: 20px; /* Move the line to the far left */
+        transform: none;
     }
 
+    /* 2. Reset the timeline item layout */
     .timeline-item {
-        width: 100%;
-        margin: 20px 0;
-        position: relative;
-        text-align: left;
-        padding-left: 30px;
+        /* Remove the horizontal flex layout */
+        flex-direction: column;
+        align-items: flex-start; /* Stack items on the left side */
+        justify-content: flex-start;
+        /* Reduce gap between items on mobile */
+        margin-bottom: 30px;
     }
 
-        .timeline-item.left, .timeline-item.right {
-            align-self: flex-start;
-        }
+    /* 3. Style the card for mobile */
+    .card {
+        width: calc(100% - 40px); /* Card fills almost the full width of the screen */
+        margin-left: 40px !important; /* Push the card over to clear the vertical line/icon */
+        margin-right: 0 !important; /* Ensure no unwanted right margin */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
 
+    /* 4. Reposition the central icon */
     .timeline-icon {
-        position: absolute;
-        left: 0;
-        top: 10px;
+        left: 20px; /* Place the icon directly on top of the vertical line */
+        transform: translateX(-50%);
+        top: 5px; /* Move the icon slightly down from the top of the item */
+        /* Reduce icon size for mobile */
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em; /* Shrink the icon glyph */
+    }
+
+    /* 5. Remove desktop-specific left/right alignment rules */
+    .timeline-item.left,
+    .timeline-item.right {
+        /* Force both sides to align to the start (left) */
+        justify-content: flex-start;
     }
 }
 
-/* Even smaller screens (phones under 600px) */
-@media (max-width: 600px) {
-    body {
-        font-size: 15px;
+/* ======================================================= */
+/* --- MEDIA QUERY: PROJECTS STACKING FIX --- */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. Reset the Projects Container from Grid to Stack */
+    .projects-container {
+        /* CRITICAL: Switch from 2-column grid to a single column */
+        grid-template-columns: 1fr;
+        /* Increase vertical gap for better separation */
+        gap: 30px;
     }
 
-    .section {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .cta-button {
+    /* 2. Reset the Project Card Layout */
+    .project-card {
+        /* Switch from horizontal flex layout to vertical stacking */
+        flex-direction: column;
+        /* Ensure the card fills the full width of the container */
         width: 100%;
+        padding: 25px; /* Adjust padding for mobile */
+        min-height: auto; /* Allow height to shrink based on content */
+        gap: 15px; /* Reduce gap between text and image */
+    }
+
+    /* 3. Adjust Project Preview (Image) */
+    .project-preview {
+        /* Image should be full width on top of the text */
+        width: 100%;
+        max-width: 100%;
+        /* Add margin to separate the image from the text below it */
+        margin-bottom: 15px;
+    }
+}
+
+/* ======================================================= */
+/* --- MEDIA QUERY: CONTACT STACKING FIX --- */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. Reset the Contact Layout from Grid to Stack */
+    .contact-layout {
+        /* CRITICAL: Switch from 2-column grid to a single column */
+        grid-template-columns: 1fr;
+        /* Reduce the gap on mobile */
+        gap: 30px;
+    }
+
+    /* 2. Adjust Form Title Alignment (Optional but clean) */
+    .contact-form-wrapper .section-title {
+        /* Re-center the title for a better mobile look */
         text-align: center;
     }
 
-    .navbar li {
-        margin: 5px;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
+    /* 3. Ensure inputs fill the full width (undoing previous 95% rule) */
+    .contact-form-wrapper input,
+    .contact-form-wrapper textarea {
+        width: 100%; /* Fill 100% of the available padding space */
     }
 }
-
