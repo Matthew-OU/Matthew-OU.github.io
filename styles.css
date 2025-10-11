@@ -19,6 +19,13 @@ html {
 
 }
 
+/* Navbar Link Hover and Active State */
+.navbar a:hover,
+.navbar a.active {
+    background-color: #6a5acd; /* The purple background highlight */
+    color: white;
+}
+
 /* Find the general style for your content sections (likely the .section class) */
 .section {
     /* Vertical padding remains the same */
@@ -798,4 +805,49 @@ html {
     .contact-form-wrapper textarea {
         width: 100%; /* Fill 100% of the available padding space */
     }
+}
+
+/* ======================================================= */
+/* --- MEDIA QUERY: NAVBAR 3x2 GRID LAYOUT FIX --- */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. Navbar Container Size (Keep current best settings) */
+    .navbar {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 10px;
+        border-radius: 15px;
+        padding: 0 5px;
+    }
+
+        /* 2. CRITICAL: Switch UL to a 2-Column Grid */
+        .navbar ul {
+            /* OVERRIDE flex-direction: column; */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 5px; /* Small gap between links */
+            padding: 5px; /* Add slight padding around the entire grid */
+            margin: 0; /* Ensure no external margin pushes the grid */
+        }
+
+        /* 3. Adjust List Item and Link Styling for the Grid */
+        .navbar li {
+            margin: 0; /* Remove all margins */
+            text-align: center;
+            /* Ensure each item fills its grid cell */
+            width: auto;
+        }
+
+        .navbar a {
+            display: block;
+            /* Increase horizontal padding for the pill effect, but keep vertical tight */
+            padding: 8px 5px;
+            font-size: 0.9em;
+            /* Ensure the pill shape is still slightly rounded */
+            border-radius: 10px;
+            /* The active link is styled here, which looks good in the grid */
+        }
 }

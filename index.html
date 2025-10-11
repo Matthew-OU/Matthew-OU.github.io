@@ -21,6 +21,41 @@
         </ul>
     </nav>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.navbar a');
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.3 // Section is considered 'active' when 30% of it is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`.navbar a[href="#${id}"]`);
+
+                    if (entry.isIntersecting) {
+                        // Remove 'active' from all links first
+                        navLinks.forEach(link => link.classList.remove('active'));
+
+                        // Add 'active' to the current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Attach the observer to every main section
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
     <section id="home" class="section home">
         <div class="home-content">
             <img src="Headshot.jpg" alt="Matthew Nguyen" class="profile-photo">
@@ -126,52 +161,52 @@
 
     </section>
 
-            <div class="timeline">
+    <div class="timeline">
 
-                <div class="timeline-item left">
-                    <div class="card">
-                        <h3>Software Analyst</h3>
-                        <p class="company">PCI Energy Solutions Inc.</p>
-                        <p class="date">Sept 2025 - Current</p>
-                        <ul>
-                            <li>Incoming Software Analyst for ETRM Operations Team.</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-icon">
-                        <img src="https://media.licdn.com/dms/image/v2/C560BAQF1jkS_491r_g/company-logo_200_200/company-logo_200_200/0/1662728488537/pci_energy_solutions_logo?e=2147483647&v=beta&t=lEg-Oc99hLZETaiS6vXFW6CN6Yl2BOVhyc1-PZSyMKc" alt="PCI Icon" width="30">
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="card">
-                        <h3>Technical Infrastructure Intern</h3>
-                        <p class="company">American Fidelity</p>
-                        <p class="date">July 2024 - Sept 2025</p>
-                        <ul>
-                            <li>Server configuration and administration</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-icon">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMJCC8vtL9g5pZ4ftcrcj77otlJvfn1i9HHkZeWINn22Yv-GZTwuA5E18Sm-RethtdViM&usqp=CAU" alt="American Fidelity Icon" width="30">
-                    </div>
-                </div>
-
-                <div class="timeline-item left">
-                    <div class="card">
-                        <h3>IT Intern</h3>
-                        <p class="company">American Fidelity</p>
-                        <p class="date">Dec 2023 - July 2024</p>
-                        <ul>
-                            <li>IT support for American Fidelity's legacy database known as the "MainFrame"</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-icon">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMJCC8vtL9g5pZ4ftcrcj77otlJvfn1i9HHkZeWINn22Yv-GZTwuA5E18Sm-RethtdViM&usqp=CAU" alt="American Fidelity Icon" width="30">
-                    </div>
-                </div>
-
+        <div class="timeline-item left">
+            <div class="card">
+                <h3>Software Analyst</h3>
+                <p class="company">PCI Energy Solutions Inc.</p>
+                <p class="date">Sept 2025 - Current</p>
+                <ul>
+                    <li>Incoming Software Analyst for ETRM Operations Team.</li>
+                </ul>
+            </div>
+            <div class="timeline-icon">
+                <img src="https://media.licdn.com/dms/image/v2/C560BAQF1jkS_491r_g/company-logo_200_200/company-logo_200_200/0/1662728488537/pci_energy_solutions_logo?e=2147483647&v=beta&t=lEg-Oc99hLZETaiS6vXFW6CN6Yl2BOVhyc1-PZSyMKc" alt="PCI Icon" width="30">
             </div>
         </div>
+
+        <div class="timeline-item right">
+            <div class="card">
+                <h3>Technical Infrastructure Intern</h3>
+                <p class="company">American Fidelity</p>
+                <p class="date">July 2024 - Sept 2025</p>
+                <ul>
+                    <li>Server configuration and administration</li>
+                </ul>
+            </div>
+            <div class="timeline-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMJCC8vtL9g5pZ4ftcrcj77otlJvfn1i9HHkZeWINn22Yv-GZTwuA5E18Sm-RethtdViM&usqp=CAU" alt="American Fidelity Icon" width="30">
+            </div>
+        </div>
+
+        <div class="timeline-item left">
+            <div class="card">
+                <h3>IT Intern</h3>
+                <p class="company">American Fidelity</p>
+                <p class="date">Dec 2023 - July 2024</p>
+                <ul>
+                    <li>IT support for American Fidelity's legacy database known as the "MainFrame"</li>
+                </ul>
+            </div>
+            <div class="timeline-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMJCC8vtL9g5pZ4ftcrcj77otlJvfn1i9HHkZeWINn22Yv-GZTwuA5E18Sm-RethtdViM&usqp=CAU" alt="American Fidelity Icon" width="30">
+            </div>
+        </div>
+
+    </div>
+    </div>
     </section> <section id="projects" class="section">
         <h1 class="section-title">Projects</h1>
 
