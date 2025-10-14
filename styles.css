@@ -1,22 +1,81 @@
-﻿/* General Styles */
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: radial-gradient(circle at center, #4e3d93 10%, /* Bright center color (similar to hsl(250, 60%, 40%)) */
-    #2a2c5a 60%, /* Mid-tone/transition color */
-    #17183e 100% /* Dark outer color */
-    );
-    color: #fff;
-    scroll-behavior: smooth;
-    min-height: 100vh;
+﻿/* ======================================================= */
+/* --- NEW: Animated Glow Border for CTA Buttons (v0.2.0)--- */
+/* ======================================================= */
+
+/* Define the slow rotation for the border effect */
+@keyframes border-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Base class for the glow effect */
+.animated-glow-border {
+    position: relative;
+    z-index: 1; /* Ensures text/content is above the glow effect */
+    overflow: hidden; /* Clips the rotating gradient to the button shape */
+}
+
+    /* Create the Animated Border using the ::before pseudo-element */
+    .animated-glow-border::before {
+        content: '';
+        position: absolute;
+        /* Position and size the gradient to cover the button diagonally */
+        top: -150%;
+        left: -150%;
+        width: 400%;
+        height: 400%;
+        /* Create the large, sweeping conical gradient */
+        background: conic-gradient( transparent 0%, transparent 30%, #a0c4ff 40%, /* Bright Highlight Color */
+        #6a5acd 50%, /* Primary Purple Button Color */
+        transparent 60% /* Fade back to transparent */
+        );
+        /* Apply the animation */
+        animation: border-rotate 4s linear infinite;
+        z-index: -1; /* Place the glow *behind* the button content */
+    }
+
+    /* Create the inner mask using the ::after pseudo-element */
+    .animated-glow-border::after {
+        content: '';
+        position: absolute;
+        /* Inset creates a border-like gap (2px border width) */
+        inset: 2px;
+        /* Use the same dark background as your button/site */
+        background-color: #0f172a;
+        z-index: 0; /* Place this *above* the rotating glow, but *below* the button text (z-index: 1) */
+        border-radius: 999px; /* Matches the cta-button pill shape */
+    }
+
+    /* Optional Hover Effect: Speed up the border animation on hover */
+    .animated-glow-border:hover::before {
+        animation-duration: 2s;
+    }
+
+/* Ensure text inside the button is always on top of all glow layers */
+.cta-button span {
+    position: relative;
+    z-index: 2;
 }
 
 
-
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    /* GRADIENT: Top-left bright blue fading to deep navy/slate blue (v0.2.0 background) */
+    background: radial-gradient( circle at 0% 0%, /* Sets the center to the top-left corner */
+    #5260ac 0%, /* Bright Blue/Indigo for the corner */
+    #2a2c5a 20%, /* Mid-tone transition (dark purple) */
+    #0f172a 100% /* Deep Slate Blue/Navy */
+    );
+}
 
 html {
     scroll-behavior: smooth;
-
 }
 
 /* Navbar Link Hover and Active State */
@@ -157,8 +216,9 @@ html {
     font-weight: bold;
 }
 
-/* --- NEW: Primary and Secondary Button Styles --- */
+/* --- UPDATED: Primary and Secondary Button Styles with Glow --- */
 
+/* Apply the glow class properties globally to both primary and secondary buttons */
 .cta-button {
     text-decoration: none;
     padding: 12px 25px;
@@ -166,31 +226,39 @@ html {
     font-weight: 600;
     font-size: 1.05em;
     transition: background-color 0.3s, border-color 0.3s;
-    display: inline-block; /* Essential for padding/sizing */
+    display: inline-block;
+    /* CRITICAL: Add the glow class properties here */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
     /* Primary Button (Contact Me) */
     .cta-button.primary {
-        background-color: #6a5acd; /* Bright Purple */
+        /* The background of the button is now the dark inner mask, not the bright color */
+        background-color: #0f172a; /* Deep Navy from your background */
         color: white;
-        border: 2px solid #6a5acd;
+        /* Remove the border since the glow is the border */
+        border: none;
     }
 
         .cta-button.primary:hover {
-            background-color: #5a4bbc;
+            /* On hover, slightly lighten the dark background for a subtle effect */
+            background-color: #17183e;
         }
 
     /* Secondary Button (Download CV) */
     .cta-button.secondary {
-        background-color: #17183e; /* Dark background */
+        /* The background of the button is the dark inner mask */
+        background-color: #0f172a; /* Deep Navy from your background */
         color: white;
-        border: 2px solid #6a5acd; /* Purple border */
+        /* Remove the border since the glow is the border */
+        border: none;
     }
 
         .cta-button.secondary:hover {
-            background-color: #6a5acd;
-            border-color: #6a5acd;
-            color: white;
+            /* On hover, slightly lighten the dark background for a subtle effect */
+            background-color: #17183e;
         }
 
 /* Social Media Icons (small circles) */
@@ -299,28 +367,28 @@ html {
     padding-top: 50px;
 }
 
-/* Vertical line */
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%; /* Position the line in the center */
-    width: 4px;
-    background-color: #6a5acd;
-    transform: translateX(-50%);
-    z-index: 1;
-}
+    /* Vertical line */
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%; /* Position the line in the center */
+        width: 4px;
+        background-color: #6a5acd;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
 
 .timeline-item {
     /* Ensure the item spans wide and is centered */
-    width: 100%; 
+    width: 100%;
     max-width: 1000px;
     margin-bottom: 50px;
     position: relative; /* Essential for positioning the icon */
     z-index: 2;
     /* Essential: Use Flexbox to position the card to the side */
-    display: flex; 
+    display: flex;
     align-items: center;
 }
 
@@ -909,7 +977,6 @@ html {
 .timeline {
     /* Add substantial space below the entire experience timeline */
     margin-bottom: 150px;
-
 }
 
 .section-header {
@@ -918,4 +985,3 @@ html {
     text-align: center;
     margin-bottom: 40px;
 }
-
