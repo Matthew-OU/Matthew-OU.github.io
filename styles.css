@@ -985,3 +985,9 @@ html {
     text-align: center;
     margin-bottom: 40px;
 }
+
+section {
+    scroll-margin-top: 180px; /* adjust to navbar height */
+    padding-top: 180px;
+    margin-bottom: 180px; /* ensures no overlap between sections */
+}

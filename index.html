@@ -26,33 +26,45 @@
             const navLinks = document.querySelectorAll('.navbar a');
             const sections = document.querySelectorAll('section');
 
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.3 // Section is considered 'active' when 30% of it is visible
-            };
+            function updateActiveLink() {
+                let currentSection = '';
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`.navbar a[href="#${id}"]`);
+                // Get the scroll position, accounting for your navbar height (180px)
+                const scrollPos = window.scrollY + 200;
 
-                    if (entry.isIntersecting) {
-                        // Remove 'active' from all links first
-                        navLinks.forEach(link => link.classList.remove('active'));
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
 
-                        // Add 'active' to the current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
+                    // Check if the current scroll position is within this section
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
                     }
                 });
-            }, observerOptions);
 
-            // Attach the observer to every main section
-            sections.forEach(section => {
-                observer.observe(section);
+                // Update active class
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Throttle function to improve performance
+            let ticking = false;
+            window.addEventListener('scroll', function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        updateActiveLink();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             });
+
+            // Initial call to set the correct active state on page load
+            updateActiveLink();
         });
     </script>
 
@@ -124,6 +136,10 @@
             <div class="skill-tag">Powershell</div>
             <div class="skill-tag">Linux</div>
             <div class="skill-tag">.NET</div>
+            <div class="skill-tag">GitHub</div>
+            <div class="skill-tag">GitLab</div>
+            <div class="skill-tag">VSCode</div>
+            <div class="skill-tag">Eclipse</div>
             <div class="skill-tag">Artificial Intelligence</div>
             <div class="skill-tag">Machine Learning</div>
             <div class="skill-tag">PyTorch</div>
