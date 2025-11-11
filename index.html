@@ -354,20 +354,29 @@
                     <p>+1 (405) 430-0999</p>
                 </div>
             </div>
-
             <div class="contact-form-wrapper">
                 <h1 class="section-title">Contact Me</h1>
-                <p class="contact-intro">If you have any questions, I'd love to hear from you. Please feel free to reach out by filling in the form below with your name, email, and a brief message.</p>
+                <p class="contact-intro">
+                    If you have any questions, I'd love to hear from you. Please feel free to reach out by filling in the form below.
+                </p>
 
-                <form action="https://formsubmit.co/matthew.nguyen.tech@gmail.com" method="POST">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms access key -->
+                    <input type="hidden" name="access_key" value="207da917-b960-49d4-b2c0-65075a1c7a65">
+
+                    <!-- Redirect after submission -->
+                    <input type="hidden" name="redirect" value="x">
+
+                    <!-- Honeypot field for spam protection -->
+                    <input type="text" name="honeypot" style="display:none">
+
+                    <!-- User input fields -->
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="tel" name="phone" placeholder="Phone">
                     <textarea name="message" placeholder="Message" rows="6" required></textarea>
-                    <button type="submit">Submit</button>
-                    <input type="hidden" name="_subject" value="New Portfolio Contact">
-                    <input type="hidden" name="_next" value="https://matthew-ou.github.io/#contact">
 
+                    <button type="submit">Submit</button>
                 </form>
             </div>
 
