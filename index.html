@@ -29,20 +29,17 @@
             function updateActiveLink() {
                 let currentSection = '';
 
-                // Get the scroll position, accounting for your navbar height (180px)
                 const scrollPos = window.scrollY + 200;
 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
 
-                    // Check if the current scroll position is within this section
                     if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
                         currentSection = section.getAttribute('id');
                     }
                 });
 
-                // Update active class
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${currentSection}`) {
@@ -51,7 +48,6 @@
                 });
             }
 
-            // Throttle function to improve performance
             let ticking = false;
             window.addEventListener('scroll', function () {
                 if (!ticking) {
@@ -63,7 +59,6 @@
                 }
             });
 
-            // Initial call to set the correct active state on page load
             updateActiveLink();
         });
     </script>
@@ -71,23 +66,20 @@
     <section id="home" class="section home">
         <div class="home-content">
             <img src="Headshot.jpg" alt="Matthew Nguyen" class="profile-photo">
-
             <h1>Hi, I'm <span class="name-highlight">Matthew Nguyen</span></h1>
-            <p>Software Developer | Java, Python, SQL</p>
-
+            <p>Software Engineer | Java, Linux, Python, SQL</p>
             <div class="button-container">
                 <a href="#contact" class="cta-button primary animated-glow-border">
                     <span>Contact Me →</span>
                 </a>
-                <a href="MATTHEW_NGUYEN_RESUME_SEPT_2025%20(2).pdf" class="cta-button secondary animated-glow-border">
+                <a href="MATTHEW_NGUYEN_RESUME_MARCH_2026.pdf" class="cta-button secondary animated-glow-border" target="_blank" rel="noopener noreferrer">
                     <span>Download CV</span>
                 </a>
-
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/matthewngocnguyen/" class="social-icon" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/matthewngocnguyen/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://github.com/Matthew-OU" class="social-icon" aria-label="GitHub">
+                    <a href="https://github.com/Matthew-OU" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -103,9 +95,10 @@
 
         <div class="about-card">
             <p>
-                I am currently completing my M.S. in Management Information Technology from the
-                <span class="highlight">University of Oklahoma</span>. I'm currently working at
-                <span class="highlight">PCI</span> as a Software Developer, ETRM Operations team for multiple clients supporting PCI software.
+                I am a <span class="highlight">University of Oklahoma</span> graduate with an
+                M.S. in Management Information Technology. I'm currently working at
+                <span class="highlight">Boeing</span> as a Software Engineer, supporting the
+                <span class="highlight">Boeing Defense, Space & Security (BDS)</span> Software Engineering organization.
             </p>
 
             <p>
@@ -186,21 +179,54 @@
         </div>
         <div class="timeline">
 
+            <div class="timeline-item right">
+                <div class="card">
+                    <h3>Software Engineer</h3>
+                    <p class="company">Boeing Company</p>
+                    <p class="date">March 2026 - Current</p>
+                    <ul>
+                        <li>Serving on the <strong>Ground Systems Operating Systems (GSOS)</strong> team, focused on the design, development, and maintenance of software solutions for <strong>secure network stack protocol software</strong> used to exchange data between mission-critical systems.</li>
+                        <li>Supporting software across multiple operating systems including <strong>Windows, Linux, Cisco IOS, VxWorks, and ESXi</strong> within air-gapped, fully self-contained ground systems environments.</li>
+                        <li>Participating in <strong>performance analysis, testing, monitoring, and software assessments</strong> of networking protocol software to identify and address risks, weaknesses, and vulnerabilities.</li>
+                        <li>Contributing to the end-to-end lifecycle development of software products, gathering requirements and providing input on <strong>secure network and protocol design</strong>.</li>
+                        <li>Working toward obtaining a <strong>U.S. Secret Security Clearance</strong> in support of Boeing Defense mission-critical programs.</li>
+                    </ul>
+                </div>
+                <div class="timeline-icon">
+                    <img src="boeinglogo.jpg" alt="Boeing Icon"  width="1000">
+                </div>
+            </div>
+
             <div class="timeline-item left">
                 <div class="card">
                     <h3>Software Developer</h3>
                     <p class="company">PCI Energy Solutions Inc.</p>
-                    <p class="date">Sept 2025 - Current</p>
+                    <p class="date">Sept 2025 - March 2026</p>
+
                     <ul>
-                        <li>Incoming <strong>Software Developer</strong> for the <strong>ETRM Operations Team</strong>, focusing on the administration and support of critical <strong>Energy Trading and Risk Management (ETRM)</strong> systems.</li>
-                        <li>Provide application and technical support to ETRM clients, identifying and troubleshooting complex <strong>software issues</strong> to deliver timely and effective solutions.</li>
-                        <li>Conduct rigorous <strong>testing and validation</strong> to ensure <strong>software quality, performance, and reliability</strong> across production and development environments.</li>
-                        <li>Analyze client business needs and project requirements; collaborate with clients to evaluate existing workflows and propose practical, high-impact solutions.</li>
-                        <li>Review and leverage <strong>Java code stacks in Eclipse</strong> to develop and deliver tailored solutions to clients, ensuring alignment with business objectives.</li>
-                        <li>Apply <strong>Agile methodologies</strong> including <strong>monthly sprints</strong> and <strong>weekly standups</strong> to coordinate tasks, prioritize work, and ensure timely project delivery.</li>
-                        <li>Contribute to <strong>process improvements</strong> and best practices for ETRM operations, reinforcing PCI’s commitment to high-quality client service.</li>
-                        <li>Create detailed <strong>project and product documentation</strong> to support internal teams and client-facing initiatives.</li>
+                        <li>Developed and maintained backend <strong>Java EE</strong> components for <strong>Energy Trading and Risk Management (ETRM)</strong> systems across multiple client engagements.</li>
+                        <li>Worked within <strong>Agile methodology</strong> using monthly sprints and weekly standups to coordinate tasks and ensure timely delivery.</li>
+                        <li>Performed production system maintenance by <strong>RDPing into AWS servers</strong> to upgrade <strong>JAR files</strong> across system instances.</li>
+                        <li>Created detailed <strong>project and product documentation</strong> to support internal teams and client-facing initiatives.</li>
                     </ul>
+
+                    <h4>PSE</h4>
+                    <ul>
+                        <li>Implemented a <strong>Natural Gas Miscellaneous Billing workflow dashboard</strong>, translating BPMN process diagrams into code supporting dual-currency billing paths (<strong>USD and CAD</strong>) across the full invoice lifecycle through to <strong>SAP</strong>.</li>
+                        <li>Engineered <strong>role-based access control</strong> across preparer, Back Office reviewer, and <strong>three-tiered Front Office approver roles</strong> with configurable approval thresholds.</li>
+                        <li>Built <strong>four transportation charge calculation engines</strong> for Natural Gas pipeline contracts across Cascade, Northwest, GTN, and NOVA pipelines.</li>
+                        <li>Deployed <strong>PCI Kube DataServices ETRM and PCI Insights</strong> to PSE's <strong>AWS Kubernetes</strong> environment, enabling near-real-time data feeds for <strong>PowerBI and Tableau</strong> reporting.</li>
+                        <li>Managed <strong>GitLab feature branch workflow</strong>, generating SSH keys, committing <strong>YAML configuration files</strong>, and submitting pull requests for Kubernetes deployment.</li>
+                    </ul>
+
+                    <h4>IPA</h4>
+                    <ul>
+                        <li>Built a <strong>Microsoft Business Central export system</strong> from scratch in Java, replacing the legacy Great Plains export and generating <strong>13-column CSV files</strong> for direct Business Central import.</li>
+                        <li>Engineered <strong>invoice entry classification logic</strong> supporting multi-vendor billing, producing dual-row Variable/Fixed output for Tenaska Marketing and single-row output for vendors including Koch and Mercuria.</li>
+                        <li>Delivered enhancement <strong>PCI-134580</strong>, adding a <strong>Notes field to the OA Input Price screen</strong> and redesigning the Day Ahead participant price email with timezone-aware formatting.</li>
+                        <li>Developed a <strong>version-aware ISOCOM trigger allocation rule</strong> dispatching daily reporting tasks through the ISOComm messaging system with robust input validation.</li>
+                    </ul>
+
                 </div>
                 <div class="timeline-icon">
                     <img src="PCI Energy Solutions.jpg" alt="PCI Icon" width="1000">
@@ -333,7 +359,7 @@
             <div class="contact-details">
 
                 <div class="map-placeholder">
-                    <iframe src="https://maps.google.com/maps?q=301%20David%20L%20Boren%20Blvd%20Suite%202000,%20Norman,%20OK%2073072&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    <iframe src="https://maps.google.com/maps?q=6001%20S%20Air%20Depot%20Blvd,%20Oklahoma%20City,%20OK%2073135&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             width="100%"
                             height="350"
                             style="border:0; border-radius: 8px;"
@@ -345,7 +371,7 @@
 
                 <div class="contact-info-block">
                     <h4>ADDRESS</h4>
-                    <p>301 David L Boren Blvd Suite 2000, Norman, OK 73072</p>
+                    <p>6001 S Air Depot Blvd, Oklahoma City, OK 73135</p>
 
                     <h4>EMAIL</h4>
                     <p>matthew.nguyen.tech@gmail.com</p>
